@@ -14,24 +14,7 @@ This project builds a scalable data pipeline that processes and analyzes used ca
 5. **AWS QuickSight**: After model predictions and SQL analyses, AWS QuickSight is used to visualize the results. It provides interactive dashboards for business stakeholders to easily interpret the data and make data-driven decisions.
 
 ## Workflow
-
-1. **Data Storage in S3**:
-   - The raw dataset is stored in Amazon S3. This provides a cost-effective and scalable solution for storing large datasets that can be accessed by other components of the pipeline.
-   
-2. **Data Processing with PySpark**:
-   - Data is ingested from S3 into PySpark, which enables distributed data processing. The data is cleaned, transformed, and relevant features are engineered to make the dataset suitable for analysis and machine learning.
-   - Jupyter Notebooks provide an interactive environment for initial analysis and data manipulation.
-
-3. **SQL Analysis**:
-   - After processing the data, various SQL queries are executed to gain insights into trends like car pricing, sales, and regional distributions. These queries are executed via Python scripts within the Spark environment.
-
-4. **Machine Learning with SageMaker AutoML**:
-   - The processed data is passed through Amazon SageMaker AutoML to automatically generate machine learning models. These models predict car prices based on the features in the dataset.
-   - SageMaker helps automate the model selection, training, and evaluation process, making it easier to create highly accurate models with minimal manual intervention.
-
-5. **Data Visualization with QuickSight**:
-   - The results from the SQL queries and model predictions are visualized using AWS QuickSight, which enables the creation of interactive dashboards.
-   - These dashboards provide insights into the data, including trends, patterns, and predictions, and are accessible to business stakeholders for decision-making.
+![sequence_diag](https://github.com/user-attachments/assets/ad586ace-3f1d-4eb7-b1b0-f12282624a8a)
 
 ## Benefits of the Pipeline
 
@@ -40,6 +23,18 @@ This project builds a scalable data pipeline that processes and analyzes used ca
 - **Automation**: The integration of Amazon SageMaker AutoML automates the machine learning process, reducing the need for manual model selection and tuning.
 - **Interactive Visualization**: AWS QuickSight enables the creation of dynamic dashboards that make it easy for users to interact with the data and derive insights.
 - **Cloud-Native Architecture**: This solution leverages AWS services that are fully managed, ensuring high availability, security, and ease of integration with other AWS tools.
+
+## Data Insights and Visualizations
+![AWS Quicksight dashboard](https://github.com/user-attachments/assets/08b6b494-ec02-45b4-9b50-1fb5f7ee4cde)
+1. **Price Trend Over Time**:  
+   The **line graph** shows average car prices fluctuating between **$15,000** and **$20,000** throughout the posting period. A notable spike can be observed, where the prices reach approximately **$30,000** at one point.
+2. **Geographic Distribution**:  
+   The **map visualization** reveals a higher concentration of car listings in the **eastern United States**, particularly along the coast. The **pricing intensity** (shown in blue) varies across regions, with certain areas exhibiting higher average prices than others.
+3. **Manufacturer Analysis**:  
+   The **bubble chart** demonstrates a positive correlation between the **year** and **price** for various manufacturers. More recent years (2015-2017) tend to have larger bubbles, indicating higher prices. **Ford** stands out as one of the dominant manufacturers.
+4. **Paint Color Impact**:  
+   The **bar chart** indicates that **purple cars** command the highest average price (around **$28,000**), followed by **custom colors**. On the other hand, **green vehicles** show the lowest average price (approximately **$12,000**). Common colors like **black**, **white**, and **silver** fall in the middle range, between **$15,000-$20,000**.
+
 
 ## Conclusion
 
